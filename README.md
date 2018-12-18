@@ -44,11 +44,12 @@ total 10096
 -rwxrwxr-x. 1 2000 2000 10337536 Dec 12 12:53 sensu-pagerduty-handler
 ```
 
-5.	Create a sym-link to the binary in your path, say `usr/local/sbin`
+5.	Create a sym-link to the binary in a folder in your path, say `usr/local/sbin`
 
 ```
 ln -s /usr/local/src/bin/sensu-pagerduty-handler /usr/local/sbin/sensu-pagerduty-handler
 ```
+NOTE: You may also just copy the binary to the folder, or put the full path to the binary in your check command.
 
 6.	Read the help for the plugin
 
