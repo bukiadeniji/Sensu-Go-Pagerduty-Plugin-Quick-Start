@@ -28,21 +28,29 @@ wget https://github.com/sensu/sensu-pagerduty-handler/releases/download/1.0.1/se
 tar xvzf sensu-pagerduty-handler_1.0.1_linux_386.tar.gz
 ```
 
-  For this version, the `sensu-pagerduty-handler` is in the `bin` directory. Verify for your platform.
+4.  For this version, the `sensu-pagerduty-handler` is in the `bin` directory. Verify for your platform.
+```
+[root@host src]# ls -l 
+total 3808
+drwxr-xr-x. 2 root     root          37 Dec 17 14:38 bin
+-rw-rw-r--. 1     2000     2000     699 Dec 12 12:45 CHANGELOG.md
+-rw-rw-r--. 1     2000     2000    1062 Dec 12 12:45 LICENSE
+-rw-rw-r--. 1     2000     2000    2026 Dec 12 12:45 README.md
+-rw-rw-r--. 1     user     user 3884211 Dec 12 12:54 sensu-pagerduty-handler_1.0.1_linux_386.tar.gz
+```
 ```
 [root@host src]# ls -l bin
 total 10096
 -rwxrwxr-x. 1 2000 2000 10337536 Dec 12 12:53 sensu-pagerduty-handler
-[root@host src]#
 ```
 
-4.	Create a sym-link to the binary in your path, say `usr/local/sbin`
+5.	Create a sym-link to the binary in your path, say `usr/local/sbin`
 
 ```
 ln -s /usr/local/src/bin/sensu-pagerduty-handler /usr/local/sbin/sensu-pagerduty-handler
 ```
 
-5.	Read the help for the plugin
+6.	Read the help for the plugin
 
 ```
 sensu-pagerduty-handler -h
@@ -58,12 +66,12 @@ Flags:
   -t, --token string   The PagerDuty V2 API authentication token
 ```
 
-5.  Create Sensu Pagerduty handler and complete your setup
+7.  Create Sensu Pagerduty handler and complete your setup
 ```
 sensuctl handler create pagerduty --type pipe --command "sensu-pagerduty-handler --token <your_integration_key>" --timeout 10
 ```
 
-6.	Create check(s), Ex. using the Nagios `check_ssh` plugin, and set pagerduty as handler
+8.	Create check(s), Ex. using the Nagios `check_ssh` plugin, and set pagerduty as handler
 ```
 sensuctl check create check_ssh --command "check_ssh -4 -p 22 127.0.0.1" --handlers pagerduty --interval 60 --ttl 120 --namespace default
 ```
