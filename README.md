@@ -46,7 +46,8 @@ ln -s /usr/local/src/bin/sensu-pagerduty-handler /usr/local/sbin/sensu-pagerduty
 
 ```
 sensu-pagerduty-handler -h
-
+```
+```
 The Sensu Go PagerDuty handler for incident management
 
 Usage:
